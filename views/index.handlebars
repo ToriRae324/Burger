@@ -1,0 +1,77 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Eat-Da-Burger!</h1>
+        </div>
+    </div>
+
+    {{!-- Burgers --}}
+    <div class="row">
+        <div class="col-md-2">
+            {{!-- Empty Col --}}
+        </div>
+
+        {{!-- Available Burgers --}}
+        <div class="col-md-4">
+            <h3>Available Burgers</h3>
+
+            {{#each burgers}}
+                {{#unless devoured}}
+                    <h6>
+                        {{burger_name}}
+                        <button class="devour" data-id="{{id}}" data-devoured="devoured">
+                            Devour It!
+                        </button>
+                    </h6>
+                {{/unless}}
+            {{/each}}
+
+        </div>
+
+        {{!-- Eaten Burgers --}}
+        <div class="col-md-4">
+            <h3>Eaten Burgers</h3>
+
+            {{#each burgers}}
+                {{#if devoured}}
+                    <h6 class="text-muted">
+                        {{burger_name}}
+                    </h6>
+                {{/if}}
+            {{/each}}
+
+        </div>
+
+
+        <div class="col-md-2">
+            {{!-- Empty Col --}}
+        </div>
+    </div>
+
+    {{!-- Add Burger --}}
+    <div class="row">
+        <div class="col-md-4">
+            {{!-- Empty Col --}}
+        </div>
+        <div class="col-md-4">
+            <h3>Add a Burger</h3>
+            <form class="addBurger">
+
+                <div class="form-group">
+                    <label for="burger">Burger Name:</label>
+                    <input type="text" id="burger" name="name">
+                </div>
+
+                <button id="addBurger" type="submit">Add Burger</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            {{!-- Empty Col --}}
+        </div>
+    </div>
+
+
+
+
+</div>
